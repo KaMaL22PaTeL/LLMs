@@ -22,6 +22,9 @@ import FreightLogbook from './screens/FreightLogbook';
 import Success from './screens/Success';
 import Opps from './screens/Opps';
 import FileNotCompatible from './screens/FileNotCompatible';
+import CarrierProfile from './screens/CarrierProfile';
+import FilesUploaded from './screens/FilesUploaded';
+import YourSupport from './screens/YourSupport';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +49,12 @@ const Stack = createStackNavigator();
 function MyStack() {
     return (
         <Stack.Navigator>
+
+            <Stack.Screen name="CarrierProfile" component={CarrierProfile} options={{ title: "CarrierProfile", headerShown: false }} />
+            <Stack.Screen name="FilesUploaded" component={FilesUploaded} options={{ title: "FilesUploaded", headerShown: false }} />
+            <Stack.Screen name="YourSupport" component={YourSupport} options={{ title: "YourSupport", headerShown: false }} />
+
+
             <Stack.Screen name="MyLLMlist" component={MyLLMlist} options={{ title: "MyLLMlist", headerShown: false }} />
             <Stack.Screen name="NameLLM" component={NameLLM} options={{ title: "NameLLM", headerShown: false }} />
             <Stack.Screen name="FileUploadPromptPage" component={FileUploadPromptPage} options={{ title: "FileUploadPromptPage", headerShown: false }} />
