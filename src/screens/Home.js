@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, Alert, ImageBackground, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Styles from '../constants/Styles';
+import AlphaTestIntro from '../components/AlphaTestIntro';
 import PoppinsText from '../components/PoppinsText';
+import { Text, TextInput } from '../components/Themed';
 import Button from '../components/Button';
+import InputText from '../components/InputText';
+import APIManager from '../services/APIManager';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function YourSupport({ navigation }) {
+export default function Home({ navigation }) {
 
     React.useEffect(() => {
         async function fetchData() {
@@ -18,34 +22,35 @@ export default function YourSupport({ navigation }) {
         fetchData();
     }, []);
 
+
     return (
         <View style={styles.container}>
-
-            <Image source={require('../assets/bg1.png')} style={styles.avatar} />
-            <PoppinsText bold={true} style={[styles.title, { marginTop: 80, color: Styles.colors.white }]}>
-                Your Support
-            </PoppinsText>
-            <View style={{ margin: 20, marginTop: 30, backgroundColor: Styles.colors.white, padding: 30, borderRadius: 10 }}>
-
-                <Image source={require('../assets/support.png')} style={{
-                    width: 60,
-                    height: 60,
+            <Image source={require('../assets/bg4.png')} style={styles.avatar} />
+            <View style={{ margin: 20, marginTop: 80, backgroundColor: Styles.colors.white, padding: 30, borderRadius: 10 }}>
+                <PoppinsText bold={true} style={styles.title}>
+                    Carrier Management Application
+                </PoppinsText>
+                <Image source={require('../assets/main.png')} style={{
+                    width: 120,
+                    height: 120,
                     alignItems: 'center',
                     alignContent: 'center',
                     alignSelf: "center"
                 }} />
-                <PoppinsText bold={true} style={[styles.title, { fontFamily: "Poppins-Regular", fontSize: 18 }]}>
-                    Please Contact
+
+                <PoppinsText style={[styles.title, { fontSize: 14 }]}>
+                    ”Reputation  Protection“  own  your  profile,  build  your  reputation  and  carry  it  with  you  everywhere.    We  give  you  all the  tools  to  build,  protect  and  grow  your  driver  reputation.    You  choose  the  pace  you  want  to go.  But,  the  sooner  you build  you  profile  the  faster  you  will  build  your  reputation.
                 </PoppinsText>
-                <PoppinsText bold={true} style={[styles.title, { fontFamily: "Poppins-Regular", fontSize: 14 }]}>
-                    PrivateLLMSupport@relayFoundry.com
-                </PoppinsText>
+
+
             </View>
 
-            <View style={{ margin: 20, marginTop: 100, marginEnd: 30 }}>
-                <Button bgColor={Styles.colors.skyblue} text='RETURN TO LLM' onPress={() => {
-                    navigation.navigate('MyLLMlist')
-                }} />
+            <View style={{
+                marginLeft: 10,
+                marginRight: 20
+            }}>
+                <Button bgColor={Styles.colors.skyblue} text='sign up' onPress={() => { navigation.navigate('SignUp') }} />
+                <Button bgColor={Styles.colors.skyblue} text='Login' onPress={() => { }} />
             </View>
 
         </View>
@@ -55,8 +60,8 @@ export default function YourSupport({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        backgroundColor: Styles.colors.white,
         width: '100%',
+        backgroundColor: Styles.colors.white,
     },
     imageContainer: {
         flex: 1,
@@ -69,13 +74,13 @@ const styles = StyleSheet.create({
     },
     avatar: {
         width: '100%',
+        // height: 120,
         position: 'absolute'
     },
     title: {
         color: Styles.colors.black,
         fontSize: 18,
         fontFamily: "Poppins-Regular",
-        marginBottom: Styles.spacing.padding,
         alignSelf: 'center',
         marginTop: 10,
         marginBottom: 10

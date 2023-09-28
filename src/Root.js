@@ -2,7 +2,6 @@ import * as React from 'react';
 import { View, Button, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './old/screens/Home';
 import Profile from './old/screens/Profile';
 import MyLLMlist from './screens/MyLLMlist';
 import Login from './old/screens/Login';
@@ -25,6 +24,8 @@ import FileNotCompatible from './screens/FileNotCompatible';
 import CarrierProfile from './screens/CarrierProfile';
 import FilesUploaded from './screens/FilesUploaded';
 import YourSupport from './screens/YourSupport';
+import Home from './screens/Home';
+import SignUp from './screens/SignUp';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +51,8 @@ function MyStack() {
     return (
         <Stack.Navigator>
 
+            <Stack.Screen name="Home" component={Home} options={{ title: "Home", headerShown: false }} />
+            <Stack.Screen name="SignUp" component={SignUp} options={{ title: "SignUp", headerShown: false }} />
             <Stack.Screen name="CarrierProfile" component={CarrierProfile} options={{ title: "CarrierProfile", headerShown: false }} />
             <Stack.Screen name="FilesUploaded" component={FilesUploaded} options={{ title: "FilesUploaded", headerShown: false }} />
             <Stack.Screen name="YourSupport" component={YourSupport} options={{ title: "YourSupport", headerShown: false }} />

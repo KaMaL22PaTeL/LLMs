@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginBottom: Styles.spacing.padding * 0.5,
         width: '100%',
-        backgroundColor: 'rgba(52, 52, 52, 0.8)'
+        backgroundColor: Styles.colors.white,
     },
     inputLabel: {
         color: Styles.colors.label,
